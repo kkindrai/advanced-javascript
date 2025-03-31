@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Spreads</title>
+</head>
+<body>
+    <h1>JS Spreads</h1>
+    <p>When you directly copy an array in JS, and then modify the copy what actually happens is that both arrays are altered...</p>
+    <h2>The Solution? the SPREAD OPERATOR!!!</h2>
+    <p><code>let dataBackup = [...data]</code></p>
+    <h2>Want multiple arrays in one?</h2>
+    <p><code>let dataBackup = [...data, 'more items', 'even more', ...arraySetTwo]</code></p>
+
+    <hr>
+    <h2>Using Array Functions on HTML Elements</h2>
+    <p>We need to use <code>[...document.querySelectorAll('#the-element')]</code> | Line 70</p>
+    <ul id="friends">
+        <li>Julia</li>
+        <li>Chee Yeng</li>
+        <li>Canek</li>
+        <li>Sita</li>
+    </ul>
+
+    <script type="text/javascript">
+        
+        // =====================================================================================
+        // General Usage
+        // =====================================================================================
+
+            // Creating some Data
+            let data = ['Kendra', 'Julia', 'Chee Yeng', 'Sita', 'Canek', 'Marian'];
+            let dataBackup = [...data];
+            
+            // Modify the backup
+            dataBackup[0] = "Jade";
+            
+            // Combine the Arrays
+            let combinedData = [...data, ...dataBackup];
+
+            console.log(`Data: ${data} \nData Backup: ${dataBackup} \nCombined Data: ${combinedData}`);
+
+
+        // =====================================================================================
+        // Using in a function (0 -> End of Variables Provided)
+        // =====================================================================================
+            let assignmentScores = (student, ...scores) => {
+                
+                // Using array.REDUCE to add all the scores
+                let total = scores.reduce((scoresTotal, result) => {
+                    return scoresTotal += result;
+                }, 0);
+
+                // Create an Average Score
+                let scoreAverage = (total / scores.length).toFixed(2) + "%";
+                
+                // Log Results
+                console.log(`Student: ${student} \nScores: ${scores} \nAverage Score: ${scoreAverage}`);
+
+                
+            }
+
+            // Callin it
+            assignmentScores('Kendra', 100, 95, 90, 85, 93);
+            assignmentScores('Julia', 100, 86, 98);
+            assignmentScores('Chee Yeng', 46, 80, 76, 92, 20, 38, 8);
+
+    
+        // =====================================================================================
+        // Iterating over HTML Elements (List)
+        // =====================================================================================
+            // how to use map on a list element
+            const friendList = [...document.querySelectorAll('#friends li')];
+            console.log(friendList);
+            
+            friendList.map(friend => {
+                console.log(friend.textContent); // bc its an element
+            })
+
+
+    </script>
+
+</body>
+</html> 

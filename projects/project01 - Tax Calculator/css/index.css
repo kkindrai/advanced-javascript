@@ -1,0 +1,52 @@
+/* For div#input-form */
+
+div#input-form {
+    width: 30em;
+    margin: auto;
+    text-align: center;
+}
+
+div#output {
+    width: 30em;
+    margin: auto;
+}
+
+button {
+    float: right;
+}
+
+hr {
+    clear: both;
+}
+
+input {
+    text-align: right;
+}
+
+/***********************************
+Sticky Footer!
+
+WHAT DOES IT DO KENDRA?!??!?
+    BAsically this will force the footer to be AT MINIMUM the height of the browser.
+    This will solve strange little spacing issues.
+
+
+https://css-tricks.com/couple-takes-sticky-footer/
+http://css-tricks.com/snippets/css/a-guide-to-flexbox
+**********************************/
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto; /* flex-grow, flex-shrink, flex-bais */
+}
+
+footer {
+    flex-shrink: 0;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON in Javascript</title>
+
+    <script src="index.js"></script>
+</head>
+<body>
+    <h1>JSON Basics in Javascript</h1>
+    <p>Notice: This assignment is our first usage of <code>window.onload()</code> being used to trigger our init method.</p>
+    <hr>
+
+    <h2>JSON Basic Syntax</h2>
+    <ul>
+        <li><strong>[]</strong> = Collection</li>
+        <li><strong>{}</strong> = Object</li>
+        <li><strong>"key": value</strong> = format</li>
+        <ul>
+            <li><code>let person = {
+                "firstName": "Kendra", 
+                "lastName": "Kindrai", 
+                "email": "kkindrai@madisoncollege.edu", 
+                "age": 23
+            };</code></li>
+        </ul>
+        <li><strong>,</strong> = seperator character</li>
+    </ul>
+
+    <h2>How to Access JSON Data</h2>
+    <h3>Dot Notation</h3>
+    <p>Performing <code>console.log(`firstName: <strong>${person.firstName}</strong> \n lastName: <strong>${person.lastName}</strong>`)</code> will return the following:</p>
+    <ul>
+        <li><code>firstName: Kendra</code></li>
+        <li><code>lastName: Kindrai</code></li>
+    </ul>
+
+    <h2>Collections of Objects <code>[{}, {}, {}]</code></h2>
+    <p>To access collections of objects, we can use the basic for i loop thing (bad practice)</p>
+    <img src="city-example.png" alt="city example" srcset="">
+    <img src="city-console-output.png" alt="city example output" srcset="">
+</body>
+</html>
+

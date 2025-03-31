@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "Maria Kindrai",
+        "email": "mkindrai@email.com"
+    },
+    {
+        "id": 2,
+        "name": "Kendra Kindrai",
+        "email": "kkindrai@email.com"
+    },
+    {
+        "id": 3,
+        "name": "Clara Kindrai",
+        "email": "ckindrai@email.com"
+    },
+    {
+        "id": 4,
+        "name": "Nick Kindrai",
+        "email": "nkindrai@email.com"
+    },
+    {
+        "id": 5,
+        "name": "Catherine Kindrai",
+        "email": "ckindrai2@email.com"
+    }
+]

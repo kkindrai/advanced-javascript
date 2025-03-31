@@ -1,0 +1,11 @@
+<students>
+    <student id='1'>
+        <name>Kendra Kindrai</name>
+        <email>kkindrai@madisoncollege.edu</email>
+    </student>
+    
+    <student id='2'>
+        <name>Clara Kindrai</name>
+        <email>ckindrai@swtc.edu</email>
+    </student>
+</students>

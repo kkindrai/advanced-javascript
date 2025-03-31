@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event handling</title>
+
+    <script src="index.js"></script>
+</head>
+<body>
+    <h1>Event Handling</h1>
+    <hr>
+
+
+    <!-- Old Method: using 'onclick' to register events and pass a reference to this element -->
+     <h2>Inline Event Handling Example (console.log parsing this attributes)</h2>
+    <button type="button" data-unique-id="1" onclick="inlineEvent(this);">Button 1</button>
+    <button type="button" data-unique-id="2" onclick="inlineEvent(this);">Button 2</button>
+    
+    <hr>
+    <h2>Dot Notation Events</h2>
+    <p>this button will fire based on what is available in the .js file for it's id</p>
+    <button type="button" data-unique-id="3" id="dotNotation">Button 3</button>
+
+
+    <hr>
+    <h2>Event Listener</h2>
+    <p>This just has a slightly different js format on the backend
+    </p>
+    <p><code> btnEventListener.addEventListener("click", addEventListenerEvent); </code></p>
+    <button type="button" data-unique-id="4" id="eventListener">Add Event Listener</button>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    init();
+</script>

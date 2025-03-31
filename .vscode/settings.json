@@ -1,0 +1,6 @@
+{
+    "html.format.extraLiners": "",
+    "html.format.unformatted": "",
+    "html.format.wrapLineLength": 80,
+    "editor.unicodeHighlight.invisibleCharacters": true
+}

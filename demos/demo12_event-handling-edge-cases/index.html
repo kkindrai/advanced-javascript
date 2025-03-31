@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Edge Cases</title>
+
+    <script src="index.js"></script>
+</head>
+<body>
+    <h1>Event Handling Edge Cases</h1>
+    <p>
+        For when you need to edge that event ◕‿↼
+    </p>
+    <hr>
+
+    <!-- CASE ONE: onclick inline(this) -->
+     <h2>Case One: <code>onclick="inline(this)"</code> Code Extension</h2>
+     <p>For when this already exists, and we are asked to modify it to add new features <strong>without removing existing</strong>.</p>
+     <!-- The button -->
+      <button   id="btn1" 
+                type="button" 
+                onclick="inline(this)">Inline Button</button>
+    
+    <h3>What does it do?</h3>
+    <ul>
+        <li>Use the <code>.addEventListener("click", newMethod)</code> to ensure compatibility</li>
+        <li><code>blank.onclick = newMethod</code> will <strong>OVERWRITE</strong> the HTML <code>onclick=""</code></li>
+    </ul>
+
+    <hr>
+    <!-- CASE TWO: addEventListener As a SubFunction -->
+     <h2>Case Two: <code>.addEventListener</code> as a SubFunction</h2>
+     <p>Say for example when you buy an item from Amazon, you need to execute a lot of sub functions at the same time. </p>
+     <p>This process allows you to execute various functions a la misma vez.</p>
+     <p>(console.log's the original call location of the function aswell (this button).)</p>
+     <button    id="subfunctionBtn"
+                type="button">Call Subfunction</button>
+
+    <h3>Format</h3>
+    <p><code>item.addEventListener("click", () => { //Subfunction Code Here });</code></p>
+
+    <h3>Caveats</h3>
+    <ul>
+        <li>If parsing an <code>event</code>, make sure your subfunction lists it and each subfunction uses it.</li>
+        <ul>
+            <li><code>item.addEventListener("click", event => { newMethod(event); });</code></li>
+        </ul>
+    </ul>
+
+
+
+
+    
+</body>
+</html>
+
+<script type="text/javascript">
+    init();
+</script>

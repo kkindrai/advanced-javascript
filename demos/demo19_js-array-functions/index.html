@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Functions</title>
+</head>
+<body>
+    <h1>Array Functions</h1>
+    <p>This basically teaches about various functions we can perform on arrays</p>
+    <ul>
+        <li>array.FILTER() => Line 34</li>
+        <li>array.MAP() => Line 55</li>
+        <li>array.REDUCE() => Line 64</li>
+    </ul>    
+</body>
+</html>
+
+<!-- Very Scuffed, but it appears we're doing this all in the HTML Doc -->
+ <script types="text/javascript">
+
+    // Creating an array of Data
+    const friends = [
+        {"id": 1, "name":"Julia", "area":"Techies"},
+        {"id": 2, "name":"Canek", "area":"IT Guides"},
+        {"id": 3, "name":"Sita", "area":"IT Guides"},
+        {"id": 4, "name":"Naomi", "area":"IT Guides"},
+        {"id": 5, "name":"Chee Yeng", "area":"Techies"},
+        {"id": 6, "name":"Leslie", "area":"Hangouters"},
+        {"id": 7, "name":"Kayla", "area":"Hangouters"}
+    ];
+
+    // ===========================================================================================
+    // array.FILTER() Method
+    // ===========================================================================================
+    
+    // More Simplified Version
+        // let techies = friends.filter(friend => friend.area == "Techies")
+    const techies = friends.filter(friend => {
+
+        // if then else turnary layout
+        // return item.thing == "searchKey" ? ifTrue : ifFalse
+        return friend.area == "Techies";
+
+    })
+
+    // Substring name example
+    const ajFriends = friends.filter(friend => friend.name.substr(0, 1).toUpperCase() >= "A" && friend.name.substr(0, 1).toUpperCase() <= "J")
+
+
+
+    // ===========================================================================================
+    // array.MAP() Method
+    // ===========================================================================================
+
+        // Lets get only the Names & where (String Interpolation aswell (strings with variables))
+        const friendNames = friends.map(friend => `${friend.name} @${friend.area}`)
+
+
+
+
+    // ===========================================================================================
+    // array.REDUCE() Method
+    // ===========================================================================================
+
+        // Totals a number of everything
+        // add all of our id's
+            // const sumIDs = friends.reduce(function(total, friend) {
+            //     total += friend.id;
+            // }, 0) // <- 0 is initial value of total
+
+        //Simplify It
+        const sumIDs = friends.reduce((total, friend) => total += friend.id, 0);
+
+
+
+
+
+
+        // Log the results 
+        console.table(techies);
+        console.table(ajFriends);
+        console.table(friendNames);
+        console.log(`Sum IDs: ${sumIDs}`);
+
+
+
+    
+
+ </script>

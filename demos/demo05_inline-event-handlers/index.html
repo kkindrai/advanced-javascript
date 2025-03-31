@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline Event Handlers</title>
+
+    <script src="index.js"></script>
+</head>
+<body>
+    <h1>Inline Event Handler Demo</h1>
+    <hr>
+
+
+    <h2>onclick Event Handler</h2>
+    <!-- This is the inline event handler, it's just using onclick -->
+    <button type="button" onclick="printMessage();">Print Message</button>
+    <hr>
+
+    <!-- onchange event handler -->
+    <h2>onchange Event Handler</h2>
+    <form>
+        <select onchange="valueChanged();">
+            <option>Blanket</option>
+            <option>Towel</option>
+            <option>Curtains</option>
+        </select>
+    </form>
+    <hr>
+
+
+    <!-- onblur event handler -->
+    <h2>onblur Event Handler</h2>
+    <input type="text" onblur="leftField();">
+    <hr>
+
+    <!-- using onblur to parse the current info -->
+     <h2>onblur parsing field data (modern)</h2>
+     <div>
+        <label for="fieldName">Name: </label>
+        <input type="text" id="fieldName" name="fieldName" onblur="parseValue(this)">
+     </div>
+</body>
+</html>

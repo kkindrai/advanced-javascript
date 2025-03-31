@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Javascript Syntax</title>
+
+    <script src="index.js"></script>
+</head>
+<body>
+    <h1>Modern Javascript Syntax</h1>
+
+    <h2>Arrow Syntax</h2>
+    <p>We should be using this new "Arrow Syntax" moving forward</p>
+    <pre class="line-numbers">
+        <code class="language-js">
+            // The Renaissance (The Ideal "Arrow Syntax")
+            const theRenaissance = () => {
+                "use strict";
+                return "The Renaissance";
+            }
+        </code>
+    </pre>
+
+
+    <h2>One Liner Arrow Syntax</h2>
+    <p>Arrow syntax, but the return is #implied. <code>we love conversational cues</code></p>
+    <li><code>{}</code>'s are not necessary in this format</li>
+    <pre class="line-numbers">
+        <code class="language-js">
+            const functionName = () => "Returned String";
+        </code>
+    </pre>
+
+
+    <h2>Syntax With Parameters</h2>
+    <p>There exist two primary ways to do this...</p>
+
+    <h3>Single Parameter Statements</h3>
+    <p>In single parameter statements, we can omit the <code>()</code>'s, as they are implied</p>
+    <pre class="line-numbers">
+        <code class="language-js">
+            const functionName = parsedParameter => {
+                "use strict";
+                console.log(parsedParameter);
+                return parsedParameter;
+            }
+        </code>
+    </pre>
+
+    <h3>Multiple Parameter Statements</h3>
+    <p>In multiple parameter statements, we do as we think we should, and keep the <code>()</code>'s</p>
+    <pre class="line-numbers">
+        <code class="language-js">
+            const functionName = (param1, param2) => {
+                "use strict";
+                console.log(param1 + param2);
+                return param2;
+            }
+        </code>
+    </pre>
+
+
+
+</body>
+</html>
