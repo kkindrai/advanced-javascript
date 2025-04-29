@@ -1,7 +1,5 @@
 // Global Data
-const studentId = "3032281"; 
-const apiKey = "Itcheui2tB58SlUGe8rrP8mskudGsNDT9nfKKG9S";
-const url = "https://ghu8xhzgfe.execute-api.us-east-1.amazonaws.com/tasks";
+const url = "http://localhost:3000/api/data";
 
 
 const init = () => {
@@ -39,8 +37,7 @@ const createTask = async () => {
         
         // Assemble the JSON
         const taskData = {
-            StudentId: studentId,
-            Description: newTask,
+            "description": newTask,
           };
           
         // Send that 
@@ -48,7 +45,6 @@ const createTask = async () => {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              "x-api-key": apiKey,
             },
             body: JSON.stringify(taskData),
           })
@@ -105,7 +101,6 @@ const showTasks = async () => {
     currentTasks.Items.forEach(task => {
         console.log(task);
 
-        id              = task.StudentId;
         taskDescription   = task.Description;
 
         // Create a list item for this task
@@ -135,11 +130,8 @@ const showTasks = async () => {
 
 const getTasks = async () => {
     try {
-        const response = await fetch(`${url}/${studentId}`, {
+        const response = await fetch(`${url}`, {
           method: "GET",
-          headers: {
-            "x-api-key": apiKey,
-          },
         });
     
         const data = await response.json(); // Convert to JSON

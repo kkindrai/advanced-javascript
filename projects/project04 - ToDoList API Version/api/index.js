@@ -12,9 +12,10 @@
  * Application Imports
  */
 const express = require("express");
-const fs = require('fs'); // Enable FileSystem
+const cors = require('cors');   // Installing CORS
+const fs = require('fs');       // Enable FileSystem
 const app = express();
-app.use(express.json()); // Enable app to use json 'middleware'
+app.use(express.json());        // Enable app to use json 'middleware'
 
 /**
  * Global Variables
@@ -75,6 +76,50 @@ app.get("/api/data/:id", (req, res) => {
             let item = jsonData.find(iSearch=>iSearch.id == parseInt(req.params.id));
             if(item) res.json(item);
             else res.json({});
+
+        } catch (parseError) {
+            // Error
+            res.send("Error loading JSON Data...");
+            console.error('Error parsing JSON:', parseError);
+        }   
+    })
+})
+
+/**
+ * ===============================================================================================
+ *                       >>>>>> POST <<<<<<<
+ */
+
+/**
+ * Purpose:     Add new item to todo list
+ * Route:       /api/data
+ * Body Input:  {"description": "your new task here"}
+ */
+app.post("/api/data/", (req, res) => {
+    
+    // Read the data JSON file (data/todo.json)  
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading JSON file:', err);
+            return;
+        }
+
+        // Parse the JSON data
+        try {
+            // Success
+            const jsonData = JSON.parse(data);
+            
+            // Create the new item object & push it
+            jsonData.push({
+                id: jsonData[jsonData.length - 1].id + 1, // get length of array, get id, add one, this is new id
+                description: req.body.description
+            });
+            
+            // Update the .json File
+            fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2));
+
+            // Respond with the newly added dataset
+            res.json(jsonData);
 
         } catch (parseError) {
             // Error
