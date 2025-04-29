@@ -15,7 +15,10 @@ const express = require("express");
 const cors = require('cors');   // Installing CORS
 const fs = require('fs');       // Enable FileSystem
 const app = express();
-app.use(express.json());        // Enable app to use json 'middleware'
+
+// Enable app use of packages (express & cors)
+app.use(express.json());      
+app.use(cors());               
 
 /**
  * Global Variables

@@ -82,7 +82,7 @@ const removeTask = async taskData => {
 const showTasks = async () => {
     // Local Variables
     let currentTasks,
-        id,
+        taskId,
         taskDescription,
         pageOutput,
         taskList;
@@ -93,30 +93,31 @@ const showTasks = async () => {
 
     // Get Tasks
     currentTasks = await getTasks();
-    
+     
     // Create the TaskList
     taskList = document.createElement("ul");
 
     // Throw that stuff onto the page
-    currentTasks.Items.forEach(task => {
+    currentTasks.forEach(task => {
         console.log(task);
 
-        taskDescription   = task.Description;
+        taskId          = task.id
+        taskDescription   = task.description;
 
         // Create a list item for this task
         let newItem = document.createElement("li");
         
         // Delete Button
         let deleteButton = document.createElement("button"); 
-        deleteButton.setAttribute("data-StudentId", id);
+        deleteButton.setAttribute("data-id", taskId);
         deleteButton.setAttribute("data-Description", taskDescription);
         deleteButton.setAttribute("type", "button");
         deleteButton.classList.add("delete-task");
         deleteButton.innerHTML = "🗑️";
 
         // Add Attributes
-        newItem.setAttribute("StudentId", id);
-        newItem.setAttribute("Description", taskDescription);
+        newItem.setAttribute("id", taskId);
+        newItem.setAttribute("description", taskDescription);
         newItem.innerHTML = taskDescription;
         newItem.appendChild(deleteButton);
 
