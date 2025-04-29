@@ -1,15 +1,11 @@
-/* 
-    RESTful API located at /api/courses
-    - get       = get all courses
-    - post      = create new course
-    - put       = modify existing course
-    - delete    = get rid of course
-*/
-
 /**
+ * The Informations
+ * 
+ * @author kkindrai
+ * 28th of April, 2025
+ * 
  * Code References:
  * - https://blog.postman.com/how-to-create-a-rest-api-with-node-js-and-express/
- * 
  */
 
 /**
@@ -20,14 +16,10 @@ const fs = require('fs'); // Enable FileSystem
 const app = express();
 app.use(express.json()); // Enable app to use json 'middleware'
 
-
 /**
  * Global Variables
  */
 const filePath = 'data/todo.json';
-
-
-
 
 /**
  * ===============================================================================================
@@ -35,7 +27,10 @@ const filePath = 'data/todo.json';
  */
 
 
-// GET: Route> /api/data
+/**
+ * Purpose:     Return all JSON Data
+ * Route:       /api/data
+ */
 app.get("/api/data", (req, res) => {
     
     // Read the data JSON file (data/todo.json)  
@@ -59,8 +54,10 @@ app.get("/api/data", (req, res) => {
     })
 })
 
-// GET: Course by ID
-//      Route> /api/courses/#
+/**
+ * Purpose:     Return Data for parsed ID
+ * Route:       /api/data/{id}
+ */
 app.get("/api/data/:id", (req, res) => {
     
     // Read the data JSON file (data/todo.json)  
@@ -86,14 +83,6 @@ app.get("/api/data/:id", (req, res) => {
         }   
     })
 })
-
-
-// GET: Route> /
-// Defining Webserver Pathing
-app.get("/", (req, res) => {
-    res.send("Hello world");
-})
-
 
 
 
