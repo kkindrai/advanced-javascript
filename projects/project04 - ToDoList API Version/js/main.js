@@ -14,8 +14,8 @@ const init = () => {
     document.getElementById("task-list").addEventListener("click", event => {
         if (event.target.classList.contains("delete-task")) {
           const taskData = {
-            StudentId: event.target.dataset.studentid,
-            Description: event.target.dataset.description
+            id: event.target.dataset.id,
+            description: event.target.dataset.description
           };
           removeTask(taskData);
         }
@@ -62,11 +62,10 @@ const createTask = async () => {
 const removeTask = async taskData => {
 
 
-    await fetch(url, {
+    await fetch(`${url}/${taskData.id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key": apiKey,
         },
         body: JSON.stringify(taskData),
       })
@@ -110,7 +109,7 @@ const showTasks = async () => {
         // Delete Button
         let deleteButton = document.createElement("button"); 
         deleteButton.setAttribute("data-id", taskId);
-        deleteButton.setAttribute("data-Description", taskDescription);
+        deleteButton.setAttribute("data-description", taskDescription);
         deleteButton.setAttribute("type", "button");
         deleteButton.classList.add("delete-task");
         deleteButton.innerHTML = "🗑️";

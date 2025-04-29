@@ -132,7 +132,57 @@ app.post("/api/data/", (req, res) => {
     })
 })
 
+/**
+ * ===============================================================================================
+ *                       >>>>>> DELETE <<<<<<<
+ */
 
+app.delete("/api/data/:id", (req, res) => {
+    
+    // Read the data JSON file (data/todo.json)  
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading JSON file:', err);
+            return;
+        }
+
+        // Parse the JSON data
+        try {
+            // Success
+            const jsonData = JSON.parse(data);
+            
+            // 1. get the task id
+            let taskToRemove = jsonData.find(iSearch => iSearch.id == parseInt(req.params.id));
+            
+            console.log(taskToRemove);
+            // 2. find that task based on its index
+            let index = jsonData.indexOf(taskToRemove);
+            
+            // 3. remove that result from the array
+            jsonData.splice(index, 1);
+            
+            // Update the .json File
+            fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2));
+
+            // Respond with the newly added dataset
+            res.json(jsonData);
+
+        } catch (parseError) {
+            // Error
+            res.send("Error loading JSON Data...");
+            console.error('Error parsing JSON:', parseError);
+        }   
+    })
+    
+    
+    
+    
+    
+    
+    
+    
+    
+})
 
 
 /**
